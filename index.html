@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Finanzas</title>
+    <link rel="stylesheet" href="styles.css"
+</head>
+<body>
+    <header>
+        <h1> App de Finanzas Personales</h1>
+        <div class="header-botones">
+            <button onclick="abrirModal('modalLogin')">Iniciar sesión</button>
+            <button onclick="abrirModal('modalRegistro')">Crear cuenta</button>
+        </div>
+    </header>
+
+    <nav>
+        <p>Inicio</p>
+    </nav>
+
+    <div class="contenedor">
+        <!-- SECCIÓN PRINCIPAL -->
+        <section>
+            <article id="contenido">
+                <h2>Bienvenido</h2>
+                <p>Selecciona una opción en el menú lateral.</p>
+            </article>
+        </section>
+
+        <!-- BARRA LATERAL -->
+        <aside>
+            <h3>¿Qué quieres hacer?</h3>
+            <button onclick="mostrarSeccion('resumen')">Resumen</button>
+            <button onclick="mostrarSeccion('ingresos')">Añadir ingresos</button>
+            <button onclick="mostrarSeccion('gastos')">Añadir gastos</button>
+            <button onclick="mostrarSeccion('pagos')">Programar pagos</button>
+            <button onclick="mostrarSeccion('invertir')">Invertir</button>
+            <button onclick="mostrarSeccion('ahorro')">Ahorro</button>
+        </aside>
+    </div>
+
+    <!-- MODAL LOGIN -->
+    <div id="modalLogin" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar" onclick="cerrarModal('modalLogin')">&times;</span>
+            <h2>Iniciar sesión</h2>
+            <input type="text" id="usuarioLogin" placeholder="Usuario">
+            <input type="password" id="passwordLogin" placeholder="Contraseña">
+            <button onclick="login()">Entrar</button>
+        </div>
+    </div>
+
+<!-- MODAL REGISTRO -->
+    <div id="modalRegistro" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar" onclick="cerrarModal('modalRegistro')">&times;</span>
+            <h2>Crear cuenta</h2>
+            <input type="text" id="usuarioRegistro" placeholder="Usuario">
+            <input type="password" id="passwordRegistro" placeholder="Contraseña">
+            <button onclick="registrar()">Registrar</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 - App Finanzas</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
