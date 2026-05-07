@@ -110,7 +110,7 @@ function mostrarSeccion(opcion) {
         let balance = ingresos - gastos;
         let colorBalance = balance >= 0 ? "#1a7a3f" : "#c0392b";
         contenido.innerHTML = `
-            <div class="seccion-header"><span class="seccion-icono">📊</span><h2>Resumen Financiero</h2></div>
+            <div class="seccion-header"><span class="seccion-icono"></span><h2>Resumen Financiero</h2></div>
             <div class="resumen-grid">
                 <div class="resumen-card ingreso-card">
                     <div class="card-icono"></div>
