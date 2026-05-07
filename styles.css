@@ -1,167 +1,336 @@
+/* ─── RESET & BASE ─── */
+*, *::before, *::after { box-sizing: border-box; }
 body {
     margin: 0;
-    font-family: Arial;
-    background: #F4F6F9;
-    color: #1C1C1C;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #eef2f7;
+    color: #1c2b3a;
 }
 
-/* HEADER */
+/* ─── HEADER ─── */
 header {
-    background: #004481;
+    background: linear-gradient(135deg, #003F7F, #0066cc);
     color: white;
-    padding: 15px;
+    padding: 16px 24px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
+header h1 { margin: 0; font-size: 22px; letter-spacing: 0.3px; }
+.header-botones { display: flex; gap: 10px; }
 .header-botones button {
     background: white;
-    color: #004481;
-    font-weight: bold;
+    color: #003F7F;
+    font-weight: 700;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s;
 }
+.header-botones button:hover { background: #dbe8f5; }
 
-.header-botones button:hover {
-    background: #dbe8f5;
-}
-
-
-/* NAV */
+/* ─── NAV ─── */
 nav {
-    background: #00539B;
-    color: white;
+    background: #0055a5;
+    color: #cde0ff;
     text-align: center;
-    padding: 10px;
+    padding: 8px;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
+nav p { margin: 0; }
 
-/* CONTENEDOR */
-.contenedor {
-    display: flex;
-}
+/* ─── LAYOUT ─── */
+.contenedor { display: flex; min-height: calc(100vh - 130px); }
 
-/* SECTION */
-section {
-    width: 70%;
-    padding: 20px;
-}
+section { width: 72%; padding: 24px; }
 
-/* TARJETAS */
-article {
+article#contenido {
     background: white;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 24px;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    min-height: 300px;
 }
 
-/* ASIDE */
+/* ─── ASIDE ─── */
 aside {
-    background: #004481;
-    width: 30%;
-    padding: 20px;
+    background: linear-gradient(180deg, #003F7F, #00539B);
+    width: 28%;
+    padding: 24px 16px;
     color: white;
 }
-
-/* BOTONES DEL ASIDE */
+aside h3 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #a8c8f0;
+    margin-bottom: 16px;
+    margin-top: 0;
+}
 aside button {
     width: 100%;
     margin-bottom: 10px;
-    padding: 10px;
+    padding: 12px 14px;
     border: none;
-    background: white;
-    color: #004481;
-    font-weight: bold;
+    background: rgba(255,255,255,0.12);
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 8px;
+    text-align: left;
+    transition: background 0.2s, transform 0.1s;
+    letter-spacing: 0.2px;
 }
-
 aside button:hover {
-    background: #dbe8f5;
+    background: rgba(255,255,255,0.25);
+    transform: translateX(3px);
 }
 
-/* BOTONES GENERALES */
-button {
-    background: #001391;
+/* ─── SECCIÓN HEADER ─── */
+.seccion-header { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+.seccion-header h2 { margin: 0; font-size: 20px; color: #003F7F; }
+.seccion-icono { font-size: 22px; }
+
+/* ─── FORM CARD ─── */
+.form-card {
+    background: #f4f8ff;
+    border: 1px solid #d0e4f7;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 24px;
+}
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 14px;
+    margin-bottom: 16px;
+}
+.form-campo { display: flex; flex-direction: column; gap: 5px; }
+.form-campo-full { grid-column: 1 / -1; }
+.form-campo label { font-size: 12px; font-weight: 700; color: #004481; text-transform: uppercase; letter-spacing: 0.5px; }
+.form-campo input,
+.form-campo select {
+    padding: 9px 12px;
+    border: 1px solid #c0d6ee;
+    border-radius: 7px;
+    font-size: 14px;
+    background: white;
+    outline: none;
+    transition: border 0.2s;
+}
+.form-campo input:focus,
+.form-campo select:focus { border-color: #0066cc; }
+
+.btn-agregar {
+    background: linear-gradient(135deg, #004481, #0066cc);
     color: white;
     border: none;
-    padding: 8px 12px;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
     cursor: pointer;
-    border-radius: 5px;
+    transition: opacity 0.2s;
+}
+.btn-agregar:hover { opacity: 0.88; }
+
+/* ─── RESUMEN CARDS ─── */
+.resumen-grid { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 8px; }
+.resumen-card {
+    flex: 1; min-width: 160px;
+    border-radius: 14px;
+    padding: 22px 18px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.card-icono { font-size: 28px; margin-bottom: 8px; }
+.resumen-label { margin: 0 0 6px; font-size: 12px; font-weight: 700; color: #666; text-transform: uppercase; }
+.resumen-valor { margin: 0; font-size: 24px; font-weight: 800; }
+.ingreso-card { background: #e8f8f0; }
+.gasto-card   { background: #fdf0f0; }
+.balance-card { background: #eef4fc; }
+.verde { color: #1a7a3f; }
+.rojo  { color: #c0392b; }
+
+/* ─── HISTORIAL ─── */
+.historial-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.historial-titulo { font-size: 15px; color: #003F7F; margin: 0; }
+.total-badge {
+    font-size: 13px; font-weight: 700;
+    padding: 5px 14px; border-radius: 20px;
+}
+.total-ingreso { background: #e8f8f0; color: #1a7a3f; }
+.total-gasto   { background: #fdf0f0; color: #c0392b; }
+
+.filtro-bar {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 12px; font-size: 13px; color: #555;
+}
+.filtro-bar select {
+    padding: 6px 10px; border: 1px solid #c0d6ee;
+    border-radius: 6px; font-size: 13px; background: white;
 }
 
-button:hover {
-    background: #0033cc;
+.tabla-wrapper { overflow-x: auto; border-radius: 10px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); }
+.tabla-historial { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.tabla-historial th {
+    background: #003F7F; color: white;
+    padding: 10px 12px; text-align: left;
+    font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;
+}
+.tabla-historial td { padding: 9px 12px; border-bottom: 1px solid #eef2f7; }
+.tabla-historial tr:last-child td { border-bottom: none; }
+.tabla-historial tr:nth-child(even) td { background: #f7faff; }
+.tabla-historial tr:hover td { background: #eef4ff; }
+
+.monto-ingreso { color: #1a7a3f; font-weight: 700; }
+.monto-gasto   { color: #c0392b; font-weight: 700; }
+.sin-registros { text-align: center; color: #aaa; font-style: italic; padding: 20px; }
+
+/* ─── BADGES ─── */
+.badge {
+    display: inline-block; padding: 3px 10px;
+    border-radius: 12px; font-size: 12px; font-weight: 600;
+}
+.badge-ingreso { background: #d4edda; color: #1a5c30; }
+.badge-gasto   { background: #fde8e8; color: #922b21; }
+
+/* ─── BOTÓN ELIMINAR ─── */
+.btn-eliminar {
+    background: none; border: none; cursor: pointer;
+    font-size: 16px; padding: 2px 6px; border-radius: 5px;
+    transition: background 0.2s;
+}
+.btn-eliminar:hover { background: #fde8e8; }
+
+/* ─── PAGOS ─── */
+.badge-estado {
+    display: inline-block; padding: 4px 10px;
+    border-radius: 12px; font-size: 12px; font-weight: 700;
+}
+.pagado   { background: #d4edda; color: #1a5c30; }
+.vencido  { background: #fde8e8; color: #922b21; }
+.proximo  { background: #fff3cd; color: #856404; }
+.pendiente{ background: #dce9fb; color: #003F7F; }
+.fila-vencido td { background: #fff8f8 !important; }
+.fila-proximo td { background: #fffdf0 !important; }
+
+.btn-pagar {
+    background: #004481; color: white;
+    border: none; padding: 5px 12px;
+    border-radius: 6px; font-size: 12px;
+    cursor: pointer; font-weight: 600;
+    transition: background 0.2s;
+}
+.btn-pagar:hover { background: #0066cc; }
+.btn-despagar { background: #6c757d; }
+.btn-despagar:hover { background: #5a6268; }
+
+/* ─── INVERSIONES ─── */
+.rendimiento-badge {
+    display: inline-block; padding: 3px 10px;
+    background: #eaf4ff; color: #004481;
+    border-radius: 12px; font-size: 12px; font-weight: 700;
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-
-    .contenedor {
-        flex-direction: column; /* ya no lado a lado */
-    }
-
-    section {
-        width: 100%;
-    }
-
-    aside {
-        width: 100%;
-    }
-
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .header-botones {
-        margin-top: 10px;
-    }
-
-    aside button {
-        font-size: 14px;
-        padding: 12px;
-    }
+/* ─── AHORRO ─── */
+.meta-card {
+    background: #f7faff;
+    border: 1px solid #d0e4f7;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 16px;
 }
+.meta-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+.meta-nombre { margin: 0 0 4px; font-size: 15px; font-weight: 700; color: #003F7F; }
+.meta-fecha  { margin: 0; font-size: 12px; color: #888; }
+.meta-montos { text-align: right; }
+.meta-aportado { font-size: 18px; font-weight: 800; color: #1a7a3f; }
+.meta-sep { color: #aaa; }
+.meta-objetivo { font-size: 14px; color: #555; }
+.barra-fondo {
+    background: #dde9f7; border-radius: 20px; height: 12px;
+    overflow: hidden; margin-bottom: 10px;
+}
+.barra-progreso { height: 100%; border-radius: 20px; transition: width 0.4s ease; }
+.meta-footer { display: flex; justify-content: space-between; align-items: center; }
+.pct-label { font-size: 12px; font-weight: 700; color: #555; }
+.aporte-grupo { display: flex; gap: 8px; align-items: center; }
+.aporte-grupo input {
+    padding: 6px 10px; border: 1px solid #c0d6ee;
+    border-radius: 6px; font-size: 13px; width: 130px;
+}
+.btn-aporte {
+    background: #004481; color: white;
+    border: none; padding: 6px 14px;
+    border-radius: 6px; font-size: 13px;
+    font-weight: 700; cursor: pointer;
+    transition: background 0.2s;
+}
+.btn-aporte:hover { background: #0066cc; }
 
-/* MODAL FONDO */
+/* ─── MODALES ─── */
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
+    display: none; position: fixed; z-index: 100;
+    left: 0; top: 0; width: 100%; height: 100%;
+    background: rgba(0,20,60,0.5);
+    backdrop-filter: blur(2px);
 }
-
-/* CONTENIDO */
 .modal-contenido {
     background: white;
-    margin: 10% auto;
-    padding: 20px;
-    width: 300px;
-    border-radius: 10px;
+    margin: 8% auto;
+    padding: 28px 30px;
+    width: 340px;
+    border-radius: 16px;
     text-align: center;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
 }
-
-/* CERRAR */
+.modal-contenido h2 { color: #003F7F; margin-top: 0; }
 .cerrar {
-    float: right;
-    cursor: pointer;
-    font-size: 20px;
+    float: right; cursor: pointer;
+    font-size: 22px; color: #aaa; line-height: 1;
 }
-
-/* INPUTS */
+.cerrar:hover { color: #333; }
 .modal input {
-    width: 90%;
-    padding: 8px;
-    margin: 10px 0;
+    width: 90%; padding: 10px 12px;
+    margin: 8px 0; border: 1px solid #c0d6ee;
+    border-radius: 8px; font-size: 14px; outline: none;
+}
+.modal input:focus { border-color: #0066cc; }
+.modal button {
+    background: linear-gradient(135deg, #004481, #0066cc);
+    color: white; border: none;
+    padding: 10px 28px; border-radius: 8px;
+    font-size: 14px; font-weight: 700;
+    cursor: pointer; margin-top: 8px; width: 90%;
+}
+.modal button:hover { opacity: 0.9; }
+.link-olvide {
+    margin-top: 12px; font-size: 13px;
+    color: #004481; cursor: pointer; text-decoration: underline;
+}
+.link-olvide:hover { color: #0066cc; }
+.texto-recuperar { font-size: 13px; color: #666; margin-bottom: 4px; }
+
+/* ─── FOOTER ─── */
+footer {
+    background: linear-gradient(135deg, #003F7F, #0066cc);
+    color: #a8c8f0; text-align: center;
+    padding: 12px; font-size: 13px;
 }
 
-
-/* FOOTER */
-footer {
-    background: #004481;
-    color: white;
-    text-align: center;
-    padding: 10px;
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+    .contenedor { flex-direction: column; }
+    section, aside { width: 100%; }
+    header { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .resumen-grid { flex-direction: column; }
+    .form-grid { grid-template-columns: 1fr; }
+    aside button { font-size: 15px; padding: 13px; }
 }

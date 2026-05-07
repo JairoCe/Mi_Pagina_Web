@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>App Finanzas</title>
-    <link rel="stylesheet" href="styles.css"
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
@@ -20,15 +20,12 @@
     </nav>
 
     <div class="contenedor">
-        <!-- SECCIÓN PRINCIPAL -->
         <section>
             <article id="contenido">
                 <h2>Bienvenido</h2>
                 <p>Selecciona una opción en el menú lateral.</p>
             </article>
         </section>
-
-        <!-- BARRA LATERAL -->
         <aside>
             <h3>¿Qué quieres hacer?</h3>
             <button onclick="mostrarSeccion('resumen')">Resumen</button>
@@ -48,10 +45,25 @@
             <input type="text" id="usuarioLogin" placeholder="Usuario">
             <input type="password" id="passwordLogin" placeholder="Contraseña">
             <button onclick="login()">Entrar</button>
+            <p class="link-olvide" onclick="abrirModal('modalOlvide'); cerrarModal('modalLogin')">¿Olvidaste tu contraseña?</p>
         </div>
     </div>
 
-<!-- MODAL REGISTRO -->
+    <!-- MODAL OLVIDÉ CONTRASEÑA -->
+    <div id="modalOlvide" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar" onclick="cerrarModal('modalOlvide')">&times;</span>
+            <h2>Recuperar contraseña</h2>
+            <p class="texto-recuperar">Ingresa tu usuario y tu nueva contraseña.</p>
+            <input type="text" id="usuarioRecuperar" placeholder="Usuario">
+            <input type="password" id="passwordNueva" placeholder="Nueva contraseña">
+            <input type="password" id="passwordConfirmar" placeholder="Confirmar contraseña">
+            <button onclick="recuperarPassword()">Restablecer</button>
+            <p class="link-olvide" onclick="abrirModal('modalLogin'); cerrarModal('modalOlvide')">Volver a iniciar sesión</p>
+        </div>
+    </div>
+
+    <!-- MODAL REGISTRO -->
     <div id="modalRegistro" class="modal">
         <div class="modal-contenido">
             <span class="cerrar" onclick="cerrarModal('modalRegistro')">&times;</span>
