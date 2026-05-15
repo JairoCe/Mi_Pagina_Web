@@ -31,7 +31,9 @@ header h1 { margin: 0; font-size: 22px; letter-spacing: 0.3px; }
     transition: background 0.2s;
 }
 .header-botones button:hover { background: #dbe8f5; }
-
+#btnLogout{
+    display: none;
+}
 /* ─── NAV ─── */
 nav {
     background: #0055a5;

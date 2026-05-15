@@ -110,7 +110,7 @@ function mostrarSeccion(opcion) {
         let balance = ingresos - gastos;
         let colorBalance = balance >= 0 ? "#1a7a3f" : "#c0392b";
         contenido.innerHTML = `
-            <div class="seccion-header"><span class="seccion-icono"></span><h2>Resumen Financiero</h2></div>
+            <div class="seccion-header"><span class="seccion-icono">📊</span><h2>Resumen Financiero</h2></div>
             <div class="resumen-grid">
                 <div class="resumen-card ingreso-card">
                     <div class="card-icono"></div>
@@ -429,9 +429,26 @@ function login() {
     if (usuario === userGuardado && password === passGuardado) {
         alert("Bienvenido " + usuario);
         cerrarModal("modalLogin");
+        // OCULTAR BOTONES
+        document.getElementById("btnLogin").style.display = "none";
+        document.getElementById("btnRegistro").style.display = "none";
+
+        // MOSTRAR CERRAR SESIÓN
+        document.getElementById("btnLogout").style.display = "inline-block";
     } else {
         alert("Datos incorrectos");
     }
+}
+// FUNCIÓN CERRAR SESIÓN
+function cerrarSesion() {
+
+    document.getElementById("btnLogin").style.display = "inline-block";
+
+    document.getElementById("btnRegistro").style.display = "inline-block";
+
+    document.getElementById("btnLogout").style.display = "none";
+
+    alert("Sesión cerrada");
 }
 
 function recuperarPassword() {
